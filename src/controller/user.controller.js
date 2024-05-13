@@ -55,7 +55,7 @@ const Registration = async (req, res) => {
                 emailsent.sendMail(user.email);
 
                 return res.json(new Apiresponse(200, user, "User successfully registered. Check your email."));
-            } catch (error) {
+            } catch (error) {//This is used to produce a error on postman
                 if (error.name === 'ValidationError') {
                     const errors = {};
                     for (const field in error.errors) {
